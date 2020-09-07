@@ -6,6 +6,7 @@ class KioskOwner(models.Model):
         ("m", "male"),
         ("f", "female")
     )
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField(max_length=6, choices=GENDERS)
     phone_number = models.IntegerField()
@@ -14,7 +15,7 @@ class KioskOwner(models.Model):
     profile_picture = models.ImageField()
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.phone_number
 
 
 class Kiosk(models.Model):

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for product in products %}
+    <h3> <img src="{% static 'images/orange.jpeg'  %}" alt="..."> <a href="/details">{{ product.title }}</a> - {{product.kiosk.currency}}{{product.selling_price}}</h3>
+    <p> {{ product.description }} </p>
+{% endfor %}
+</body>
+</html>
+
+logue/products_details.html')

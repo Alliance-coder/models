@@ -1,9 +1,9 @@
 from django.db import models
 
 from kiosks.models import Kiosk
-from customers.models import Customer
 
-# Create your models here.
+
+# Create yoobjects.createur models here.
 from django.contrib.auth.models import User
 
 
@@ -16,11 +16,19 @@ class Product_supplier(models.Model):
     date_added = models.DateField()
     profile_picture = models.ImageField()
 
+    def __str__(self):
+        return self.email
+    
+
 
 class Product_Category(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=100)
     icon = models.ImageField()
+
+    def __str__(self):
+        return self.name
+    
 
 class Product(models.Model):
     title = models.CharField(max_length=10)
@@ -31,6 +39,10 @@ class Product(models.Model):
     supplier = models.ForeignKey(Product_supplier, on_delete=models.CASCADE)
     kiosk = models.ForeignKey(Kiosk, on_delete=models.CASCADE)
     number_in_stock = models.ImageField()
+
+    def __str__(self):
+        return self.title
+    
 
 
 class Product_Image(models.Model):

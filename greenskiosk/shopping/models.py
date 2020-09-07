@@ -9,8 +9,9 @@ from customers.models import Customer
 class Cart(models.Model):
    products = models.ManyToManyField(Product)
    date_created = models.DateField()
-   total_price = models.DecimalField
+#    total_price = models.DecimalField(max_digits=20, decimal_places=10)
    status = models.CharField(max_length=30)
+   
 
 class Payment(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
